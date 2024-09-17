@@ -1,0 +1,400 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #000;
+}
+
+body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  overflow: hidden;
+  perspective: 1000px;
+}
+.night {
+  z-index: -1;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  background-image: radial-gradient(
+      ellipse at top,
+      transparent 0%,
+      var(--dark-color)
+    ),
+    radial-gradient(
+      ellipse at bottom,
+      var(--dark-color),
+      rgba(145, 233, 255, 0.2)
+    ),
+    repeating-linear-gradient(
+      220deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      189deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      148deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    linear-gradient(90deg, #ff6b6b, rgb(240, 240, 240));
+}
+body {
+    background-image: var(--color-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+    justify-content: flex-end; /* Alinea el contenido al final del viewport */
+    overflow: hidden; /* Evita el desbordamiento */
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.h1-titulo{
+    color: #ff6b6b !important;
+}
+        
+body::before{
+    position: absolute;
+    width: min(1400px, 90vw);
+    top: 10%;
+    left: 50%;
+    height: 90%;
+    transform: translateX(-50%);
+    content: '';
+    background-image: url(images/bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    pointer-events: none;
+}
+
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    top: 5%;
+    left: calc(50% - 150px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(2500px) rotateX(-10deg) rotateY(0deg);
+    }to{
+        transform: perspective(2500px) rotateX(-10deg) rotateY(160deg);
+    }
+}
+
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(300px);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.banner .content{
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    margin-left: 5em;
+    font-size: 3em;
+    line-height: 5em;
+    color: #25283B;
+    position: relative;
+}
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+@media screen and (max-width: 1023px) {
+    .banner .slider{
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(300px);
+    }
+    .banner .content h1{
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+}
+@media screen and (max-width: 767px) {
+    .banner .slider{
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(180px);
+    }
+    .banner .content h1{
+        font-size: 5em;
+    }
+}
+
+/*-------------------*/
+/* General light style */
+/* General light style */
+.light {
+    position: absolute;
+    bottom: 0vmin;
+    width: 1vmin;
+    height: 1vmin;
+    background-color: #ff6b6b;
+    border-radius: 50%;
+    filter: blur(0.2vmin);
+    animation: light-ans-background 7s linear infinite backwards;
+}
+
+.light-1 {
+    left: 10vmin;
+    animation-delay: 1s;
+}
+.light-2 {
+    left: 20vmin;
+    animation-delay: 0.5s;
+}
+.light-3 {
+    left: 60vmin;
+    animation-delay: 0.3s;
+}
+.light-4 {
+    left: 80vmin;
+    animation-delay: 0.9s;
+}
+.light-5 {
+    left: 45vmin;
+    animation-delay: 1.5s;
+}
+.light-6 {
+    left: 10vmin;
+    animation-delay: 3s;
+}
+.light-7 {
+    left: 90vmax;
+    animation-delay: 2s;
+}
+.light-8 {
+    left: 60vmax;
+    animation-delay: 3.5s;
+}
+.light-9 {
+    left: 70vmax;
+    animation-delay: 2s;
+}
+.light-10 {
+    left: 95vmax;
+    animation-delay: 3.5s;
+}
+.light-11 {
+    left: 75vmax;
+    animation-delay: 3s;
+}
+.light-12 {
+    left: 85vmax;
+    animation-delay: 0.5s;
+}
+.light-13 {
+    left: 100vmax;
+    animation-delay: 4.5s;
+}
+.light-14 {
+    left: 70vmax;
+    animation-delay: 1s;
+}
+.light-15 {
+    left: 105vmax;
+    animation-delay: 2.5s;
+}
+.light-16 {
+    left: 125vmax;
+    animation-delay: 3s;
+}
+.light-17 {
+    left: 45vmax;
+    animation-delay: 0.5s;
+}
+.light-18 {
+    left: 65vmax;
+    animation-delay: 2.5s;
+}
+.light-19 {
+    left: 25vmax;
+    animation-delay: 3s;
+}
+.light-20 {
+    left: 85vmax;
+    animation-delay: 0.5s;
+}
+
+@keyframes open-flower-leaves {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+    }
+}
+
+@keyframes open-flower {
+    0% {
+        transform: translateX(-50%) rotate(0);
+    }
+}
+
+@keyframes open-flower-middle {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+    }
+}
+
+@keyframes light-ans {
+    0% {
+        opacity: 0;
+        transform: translateY(0vmin);
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(-5vmin) translateX(-2vmin);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-15vmin) translateX(2vmin);
+        filter: blur(0.2vmin);
+    }
+    75% {
+        transform: translateY(-20vmin) translateX(-2vmin);
+        filter: blur(0.2vmin);
+    }
+    100% {
+        transform: translateY(-30vmin);
+        opacity: 0;
+        filter: blur(1vmin);
+    }
+}
+
+@keyframes light-ans-background {
+    0% {
+        opacity: 0;
+        transform: translateY(0vmin);
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(-10vmin) translateX(-2vmin);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-20vmin) translateX(2vmin);
+        filter: blur(0.2vmin);
+    }
+    60% {
+        transform: translateY(-30vmin) translateX(-2vmin);
+        filter: blur(0.2vmin);
+    }
+    70% {
+        transform: translateY(-40vmin) translateX(2vmin);
+        filter: blur(0.2vmin);
+    }
+    80% {
+        transform: translateY(-50vmin) translateX(-2vmin);
+        filter: blur(0.2vmin);
+    }
+    100% {
+        transform: translateY(-60vmin);
+        opacity: 0;
+        filter: blur(1vmin);
+    }
+}
+
+
+
+/*-------------------------*/
+.romantic-button {
+    background-color: #ff6b6b;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    margin: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.romantic-button:hover {
+    background-color: #ff3b3b;
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+        /* Icono de corazón */
+.romantic-button::before {
+    content: "💖";
+}

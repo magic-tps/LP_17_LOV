@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Style/3.css">
+    <link rel="icon" href="../Multimedia/Imagenes/carta.png">
+    <title>Carta 3</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="elements"></div>
+        <div class="heart"></div>
+    </div>
+    <div class="letter-button-container"></div>
+        <button class="letter-button" onclick="showLetter()">Mostrar Carta</button>
+    </div>
+    <h1>Presiona para escuchar la melodía del amorsh</h1>
+
+    <!-- Botón romántico que controla la música -->
+    <button class="romantic-button" onclick="toggleMusic()">Reproducir Música</button>
+
+    <!-- Audio oculto -->
+    <audio id="romanticMusic">
+        <source src="../Multimedia/Musica/Momentos.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+<div class="image-gallery"></div>
+    <div class="image-container">
+        <img class="img-1" src="../Multimedia/Imagenes/10.3.jpg">
+        <div class="hover-message">Tu sonrisa</div>
+    </div>
+
+    <div class="image-container">
+        <img class="img-2" src="../Multimedia/Imagenes/10.4.jpg">
+        <div class="hover-message">ilumina &#x2728</div>
+    </div>
+
+    <div class="image-container">
+        <img class="img-3" src="../Multimedia/Imagenes/10.2.jpg">
+        <div class="hover-message">mi alma &#x1F495</div>
+    </div>
+</div>
+
+
+    <!-- Modal (carta romántica) -->
+    <div id="romanticLetter" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeLetter()">&times;</span>
+            <h2>&#x1F495 MI CORAZON LATE POR TI &#x1F495</h2>
+            <p>Los momentos que paso a tu lado son los mas preciados y hermosos que tengo ❤️</p>
+            <p>Nosotros si que hemos hecho y nos ha pasado cada cosa amorsh hahahahahahaha &#x1F495. Cada momento contigo se siente magico, gracias por compartir un pedacito de tu vida conmigo y hacerme reir, gracias por cruzarte en mi camino &#x1F495. Eres muy importante para mi, siempre estare ahi para ti, eterna e incondicionalmente. Como diria Yuta Okkotsu "Te daré mi futuro. también. Mi corazón, mi cuerpo y todo mi ser. Estaremos juntos". Jamas dudes que lo que siento por ti es unico y real piojita preshosha &#x1F495&#x1F495&#x1F495</p><p>Con todo mi amorsh &#x1F495</p>
+            <p>Tu amargadito &#x1F61C</p>
+        </div>
+    </div>
+    <script src="../Script/3.js"></script>
+</body>
+</html>

@@ -361,7 +361,7 @@ html, body {
     border-radius: 10px;
     overflow: hidden; /* Recorta cualquier exceso */
     top: -60%;
-    left: 7%;
+    left: 15%;
 }
 
 /* Imagen dentro del contenedor */
